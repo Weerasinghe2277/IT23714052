@@ -32,6 +32,7 @@ This testing framework validates the translation of romanized Sinhala (Singlish)
 The test suite includes 40 meticulously designed test cases distributed across three categories:
 
 ### Positive Functional Tests (30 cases)
+
 - **Simple Sentences**: Daily activities, requests, greetings, and common expressions
 - **Complex Sentences**: Compound sentences, conditional statements, cause-effect relationships
 - **Interrogative Forms**: Questions with various sentence structures
@@ -42,6 +43,7 @@ The test suite includes 40 meticulously designed test cases distributed across t
 - **Future and Negative Tenses**: Various grammatical structures
 
 ### Negative Functional Tests (10 cases)
+
 - Joined words without proper spacing
 - Mixed symbols and words
 - Informal slang and colloquialisms
@@ -51,10 +53,12 @@ The test suite includes 40 meticulously designed test cases distributed across t
 - Incomplete sentences
 
 ### UI Tests (2 cases)
+
 - Long text scrolling behavior
 - Multiline input handling
 
 ### Test Lengths
+
 - **S (Short)**: Quick single-sentence translations
 - **M (Medium)**: Multi-clause or compound sentences
 - **L (Long)**: Paragraphs and extended text
@@ -137,6 +141,7 @@ npx playwright show-report
 ```
 
 The report includes:
+
 - Pass/fail status for each test
 - Execution time
 - Screenshots on failure
@@ -147,24 +152,27 @@ The report includes:
 
 Test cases are organized with standardized ID prefixes:
 
-| Prefix | Category | Description |
-|--------|----------|-------------|
-| **Pos_Fun** | Positive Functional | Valid inputs expecting correct translation |
+| Prefix      | Category            | Description                                     |
+| ----------- | ------------------- | ----------------------------------------------- |
+| **Pos_Fun** | Positive Functional | Valid inputs expecting correct translation      |
 | **Neg_Fun** | Negative Functional | Invalid/edge case inputs testing error handling |
-| **Pos_UI** | Positive UI | User interface behavior validation |
-| **Neg_UI** | Negative UI | UI stress and edge case testing |
+| **Pos_UI**  | Positive UI         | User interface behavior validation              |
+| **Neg_UI**  | Negative UI         | UI stress and edge case testing                 |
 
 ### Sample Test Cases
 
 **Pos_Fun_0001**: Convert simple daily sentence
+
 - Input: `mama kaeema kanavaa.`
 - Expected: `මම කෑම කනවා.`
 
 **Pos_Fun_0021**: Convert mixed English technical term
+
 - Input: `Zoom lecture ekak thiyenavaa.`
 - Expected: `Zoom lecture එකක් තියෙනවා.`
 
 **Neg_Fun_0001**: Fail on joined food request sentence
+
 - Input: `matafriedriceonee`
 - Expected: Should fail gracefully
 
@@ -193,6 +201,7 @@ IT23714052/
 Test behavior can be customized in [playwright.config.js](playwright.config.js):
 
 **Key Settings:**
+
 - **Test Directory**: `./tests`
 - **Parallel Execution**: Enabled for faster test runs
 - **Retries**: 2 retries on CI, 0 locally
@@ -203,6 +212,7 @@ Test behavior can be customized in [playwright.config.js](playwright.config.js):
 ### Customizing Wait Times
 
 Tests include intelligent wait times based on content length:
+
 - Short (S): 3000ms
 - Medium (M): 3000ms
 - Long (L): 5000ms
